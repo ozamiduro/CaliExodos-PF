@@ -1,0 +1,78 @@
+html {
+    background-image: white;  
+    background-repeat: no-repeat;
+    
+}
+
+h3{
+    font-family: 'Orelega One', cursive;
+    color: black;
+}
+p{
+    font-family: 'Roboto', sans-serif;
+}
+h1 
+{
+    font-family: 'Orelega One', cursive;
+    text-align: center;
+}
+
+/* Titulo */
+#titulo{
+    background-color: black;
+    color: white;
+    padding: 50px;
+}
+
+/* Menu de opciones */
+#menu{
+    width: 100%;
+    padding: 2px;
+    border: 1px black solid;
+}
+
+#sepa{
+    border: 1px black solid;
+    cursor: pointer;
+}
+
+#select{
+    width: 100%;
+    background-color: rgb(0 ,0, 0, 0);
+    border: 0;
+    cursor: pointer;
+    font-family: "Orelega One", cursive;
+    text-align-last: center;
+}
+
+#sepa:hover{
+    background-color: darkgray;
+    transition: background-color .5s;
+}
+
+/*Galeria*/
+.galeria{
+    margin-left: auto;
+    margin-right: auto;
+    background-color:slategrey;
+    border-radius: 5px;
+    width: 75%;
+}
+
+.table{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*Pie de página*/
+
+#foot{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    background: rgb(170, 169, 97);
+    color: white;
+    border-radius: 2px;
+    text-align: center;
+    display: block;
+}
