@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-firestore.js"></script>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./CSS/Mood-index.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Orelega+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Orelega+One&family=Roboto:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Unlock&display=swap" rel="stylesheet">
+        <script src="JS-PF.js" type="text/javascript"></script>
+        <title>Agendar Cita</title>
+
+
+    </head>
+    <body>
+        <div>
+            <form id="registrar">
+                <div>
+                    <p>
+                        <label>Nombre:</label>
+                        <input id="name" type="text" name="usuario" required>
+                    </p>
+                    <p>
+                        <label>Cedula:</label>
+                        <input id="cc" type="text" name="cedula" required>
+                    </p>
+                    <!--                    <p>
+                                            <label>Plan:</label>
+                                            <input>
+                                        </p> -->
+                    <button onclick="obtenerDatos()" type="button">
+                        Enviar
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </body>
+</html>
