@@ -27,11 +27,18 @@ function AgregarDatos() {
 
     var name = document.getElementById("name").value;
     var cedula = document.getElementById("cc").value;
+    var plan = document.getElementById("oplanes").value;
+    var horario = document.getElementById("hora").value;
 
 
     db.collection('cita').doc(cedula).set({
         name: name,
         cedula: cedula,
+        plan : {
+            plan: plan,
+            horario: horario,
+            
+        }
     })
             .then(res => (console.log("guardado")))
             .catch()
@@ -49,7 +56,6 @@ function LimpiarForm() {
 
 
 window.onload = function () {
-    obtenerDatos();
 
 }
 

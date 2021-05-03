@@ -13,14 +13,28 @@
 
     <div id="titulo">
         <h1>Museo Cali-exodos</h1>
-    </div>    
+    </div>   
+    <script>
+        function Redireccionar(){
+            let value = document.getElementById("select").value;
+            
+            console.log(value);
+            
+            if(value == "Cita"){
+                window.location = "./Cita.html";
+            } else if(value == "Administrador") {
+                window.location = "./Admin.html";
+            }
+        }
+    </script>
     <div>
         <table id="menu">
             <tr>
                 <th id="sepa">Obras</th>
-                <th id="sepa"><select name="" id="select">
-                        <option value="1">Cita</option>
-                        <option value="2"><a href="./Admin.html">Administrador</a></option>
+                <th id="sepa"><select name="" id="select" onchange="Redireccionar()">
+                        <option value="0">Seleccione una opcion</option>
+                        <option value="Cita">Cita</option>
+                        <option value="Administrador">Administrador</option>
                     </select></th>
                     <th id="sepa"><a href="./Agendar.html">Agendar</a></th>
             </tr>

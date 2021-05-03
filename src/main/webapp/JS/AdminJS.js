@@ -22,21 +22,32 @@ var datos = [];
 function obtenerDatos() {
     db.collection("cita").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-            console.log(`${doc.id} => ${doc.data().name},${doc.data().cedula}`);
+            console.log(`${doc.id} => ${doc.data().name},${doc.data().cedula},${doc.data().plan}`);
 
             var nombre = doc.data().name;
             var cedula = doc.data().cedula;
+            
+            console.log(doc.data().plan)
+            
+            var horario = "";//doc.data().plan['horario'];
+            var planes = "";//doc.data().plan['plan'];
+            
+            let plan = {
+                horario:horario,
+                plan: planes,
+            };
 
 
             let data = {
                 name: nombre,
                 cc: cedula,
+                plan: plan,
             };
 
             datos.push(data);
         });
     });
-    console.log(datos.length)
+    console.log(datos)
 }
 
 function tablaAdmin() {
