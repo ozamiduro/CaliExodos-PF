@@ -20,28 +20,38 @@ firebase.firestore();
 let db = firebase.firestore();
 
 
+
 /* Funciones */
 
 function AgregarDatos() {
+
     var name = document.getElementById("name").value;
     var cedula = document.getElementById("cc").value;
-    
 
-    db.collection('cita').add({
+
+    db.collection('cita').doc(cedula).set({
         name: name,
         cedula: cedula,
     })
             .then(res => (console.log("guardado")))
             .catch()
 
-    db.collection("cita").get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            console.log(`${doc.id} => ${doc.data().name},${doc.data().cedula}`)
-        });
-    });
-    
+
+    obtenerDatos();
+    LimpiarForm();
 }
 
+function LimpiarForm() {
+    document.getElementById("registrar").reset();
+}
+
+
+
+
+window.onload = function () {
+    obtenerDatos();
+
+}
 
 
 

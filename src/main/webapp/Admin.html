@@ -5,12 +5,55 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
+
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-firestore.js"></script>
     <head>
-        <title>TODO supply a title</title>
         <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+        <link rel="stylesheet" href="./CSS/Mood-index.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Orelega+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Orelega+One&family=Roboto:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Unlock&display=swap" rel="stylesheet">
+        <script src="./JS/AdminJS.js" type="text/javascript"></script>
+        <title>Revisar Citas</title>
+
+    <div id="titulo">
+        <h1>Citas (Administrador)</h1>
+    </div> 
+</head>
+<body>
+    <br><br>
+    <button onclick="tablaAdmin()">Cargar</button>
+    <br><br>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                        Nombre
+                    </td>
+                    <td>
+                        Cedula
+                    </td>
+                    <td>
+                        Plan
+                    </td>
+                </tr>
+            </thead>
+            <tbody id="data">
+
+            </tbody>
+            <tfoot>
+
+            </tfoot>
+        </table>
+    </div>
+</body>
 </html>
