@@ -1,3 +1,5 @@
+/* Inicializar FireStore*/
+
 /* global firebase */
 
 var firebaseConfig = {
@@ -11,21 +13,37 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+firebase.firestore();
+
+/* Atributos */
 
 let db = firebase.firestore();
 
-function obtenerDatos() {
+
+/* Funciones */
+
+function AgregarDatos() {
     var name = document.getElementById("name").value;
     var cedula = document.getElementById("cc").value;
+    
 
-    console.log(name + ", " + cedula);
+    db.collection('cita').add({
+        name: name,
+        cedula: cedula,
+    })
+            .then(res => (console.log("guardado")))
+            .catch()
 
-//    db.collection('cita').doc().set({
-//        name: name,
-//        cedula: cedula,
-//    });
-
-    console.log(db.collection('cita').get());
+    db.collection("cita").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            console.log(`${doc.id} => ${doc.data().name},${doc.data().cedula}`)
+        });
+    });
+    
 }
+
+
+
+
 
     

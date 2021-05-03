@@ -1,12 +1,23 @@
 html {
     background-image: white;  
     background-repeat: no-repeat;
-    
+
+}
+
+body {
+    margin: 0;
+}
+
+h2 {
+    font-family: 'Orelega One', cursive;
+    color: white;
+    background-color: black;
+    text-align: center;
 }
 
 h3{
     font-family: 'Orelega One', cursive;
-    color: black;
+    color: white;
 }
 p{
     font-family: 'Roboto', sans-serif;
@@ -17,6 +28,7 @@ h1
     text-align: center;
 }
 
+/* index*/
 /* Titulo */
 #titulo{
     background-color: black;
@@ -54,9 +66,9 @@ h1
 .galeria{
     margin-left: auto;
     margin-right: auto;
-    background-color:slategrey;
+    background-color: rgb(37, 37, 37);
     border-radius: 5px;
-    width: 75%;
+    width: 90%;
 }
 
 .table{
@@ -67,12 +79,104 @@ h1
 /*Pie de página*/
 
 #foot{
-    width: 100%;
+    margin: 0;
+    width: auto;
+    padding-left: 20px;
     margin-right: auto;
     margin-left: auto;
-    background: rgb(170, 169, 97);
+    background: black;
     color: white;
-    border-radius: 2px;
-    text-align: center;
+    text-align: left;
     display: block;
+}
+
+/*Imagenes*/
+
+.Gimage {
+    object-fit:contain;
+    text-align: center;
+}
+
+.image {
+    padding-left: 20px;
+    width: 100%;
+    height: auto;
+}
+
+.img-text {
+    margin-right: 20px;
+    color: white;
+    width: 30%;
+    height: auto;
+    padding-left: 30px;
+}
+
+/* Agendar */
+
+#formulario {
+    background-color: black;
+    width: 75%;
+    padding: 10px 0px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-radius: 20px;
+    color: white;
+}
+
+input{
+    border-radius: 7px;
+    width: 50%;
+    height: 20px;
+    text-align: center;
+}
+
+button{
+    border: white 2px solid;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    height: 60px;
+    width: 80px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+}
+
+.planes {
+    border: white 2px dotted;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    width: 75%;
+}
+
+.planes td{
+    border-bottom: white 2px dotted;
+    padding: 10px;
+}
+
+#T_bronce{
+    background-color:#cd7e32;
+}
+
+#T_plata{
+    background-color:#c0c0c0;
+
+}
+
+#T_oro{
+    background-color:#ffbf00;
+}
+
+#oplanes{
+    background-color: white;
+    width: 50%;
+    text-align-last: center;
+    border-radius: 5px; 
+    height: 20px;
 }

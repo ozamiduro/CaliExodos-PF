@@ -1,7 +1,7 @@
 html {
     background-image: white;  
     background-repeat: no-repeat;
-    
+
 }
 
 body {
@@ -28,6 +28,7 @@ h1
     text-align: center;
 }
 
+/* index*/
 /* Titulo */
 #titulo{
     background-color: black;
@@ -108,4 +109,74 @@ h1
     width: 30%;
     height: auto;
     padding-left: 30px;
+}
+
+/* Agendar */
+
+#formulario {
+    background-color: black;
+    width: 75%;
+    padding: 10px 0px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-radius: 20px;
+    color: white;
+}
+
+input{
+    border-radius: 7px;
+    width: 50%;
+    height: 20px;
+    text-align: center;
+}
+
+button{
+    border: white 2px solid;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    height: 60px;
+    width: 80px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+}
+
+.planes {
+    border: white 2px dotted;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    width: 75%;
+}
+
+.planes td{
+    border-bottom: white 2px dotted;
+    padding: 10px;
+}
+
+#T_bronce{
+    background-color:#cd7e32;
+}
+
+#T_plata{
+    background-color:#c0c0c0;
+
+}
+
+#T_oro{
+    background-color:#ffbf00;
+}
+
+#oplanes{
+    background-color: white;
+    width: 50%;
+    text-align-last: center;
+    border-radius: 5px; 
+    height: 20px;
 }
