@@ -18,13 +18,15 @@
         function Redireccionar(){
             let value = document.getElementById("select").value;
             
-            console.log(value);
-            
             if(value == "Cita"){
                 window.location = "./Cita.html";
             } else if(value == "Administrador") {
                 window.location = "./Login.html";
             }
+        }
+
+        function obras(){
+            window.location = "./Obras.html";
         }
     </script>
     <div>
@@ -32,7 +34,7 @@
             <tr>
                 <th id="sepa"><a href="./Obras.html">Obras</a></th>
                 <th id="sepa"><select name="" id="select" onchange="Redireccionar()">
-                        <option value="0">Seleccione una opcion</option>
+                        <option value="0" selected="selected">Seleccione una opcion</option>
                         <option value="Cita">Cita</option>
                         <option value="Administrador">Administrador</option>
                     </select></th>
@@ -115,6 +117,11 @@
             </table>
             <br>
         </div>
+    </div><br><br><br>
+    <div >
+        <p>
+            <button id="conobras" onclick="obras()">Conocer todas las obras</button> 
+        </p>
     </div>
 </body>
 <br><br><br>

@@ -27,33 +27,44 @@ and open the template in the editor.
     <div id="titulo">
         <h1>Citas (Administrador)</h1>
     </div> 
+    <script>
+        function volver () {
+            window.location = "./index.html"
+        }
+    </script>
 </head>
 <body>
     <br><br>
-    <button onclick="tablaAdmin()">Cargar</button>
+    <button id="datoscargar" onclick="tablaAdmin()">Cargar</button>
+    <img onclick="volver()" class="volverr" src="./SRC/ARROW.png">
     <br><br>
-    <div>
-        <table>
+    <div id="datos">
+        <br><br>
+        <table id="tabladatos">
             <thead>
                 <tr>
-                    <td>
+                    <td class="lostd">
                         Nombre
                     </td>
-                    <td>
+                    <td class="lostd">
                         Cedula
                     </td>
-                    <td>
+                    <td class="lostd">
                         Plan
+                    </td>
+                    <td class="lostd">
+                        Horario
                     </td>
                 </tr>
             </thead>
             <tbody id="data">
 
             </tbody>
-            <tfoot>
+            <tfoot id="cantidadatos">
 
             </tfoot>
         </table>
+        <br><br>
     </div>
 </body>
 </html>

@@ -59,10 +59,10 @@ function tablaCustomer(recti) {
     
         nuevoTr +=
         `<tr>
-        <td>${recti.name}</td>
-        <td>${recti.cc}</td>
-        <td>${recti.plan.plan}</td>
-        <td>${recti.plan.horario}</td>
+        <td class="lostd">${recti.name}</td>
+        <td class="lostd">${recti.cc}</td>
+        <td class="lostd">${recti.plan.plan}</td>
+        <td class="lostd">${recti.plan.horario}</td>
         </tr> `;
     
     body.innerHTML = nuevoTr;
@@ -77,10 +77,12 @@ function VerificarDatos() {
     
     if(cador !== undefined){
         tablaCustomer(cador);
+        document.getElementById("form").reset();
     }
     else{
-        
+        document.getElementById("form").reset();
         alert("Se ha generado un error al digitar su documento, por favor vuelvalo a digitar");
+        document.getElementById("data").innerHTML = "";
     }
     
 }
