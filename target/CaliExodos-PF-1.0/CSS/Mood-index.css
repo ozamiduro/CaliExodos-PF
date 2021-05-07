@@ -54,7 +54,15 @@ h1
     text-align: center;
 }
 
-/* index*/
+/* -----------------    index      -----------------*/
+
+#conobras{
+    margin-left: 45%;
+    text-align: center;
+    width:120px;
+    height: 75px;
+}
+
 /* Titulo */
 #titulo{
     background-color: black;
@@ -142,7 +150,7 @@ h1
     padding-left: 30px;
 }
 
-/* Agendar */
+/* -----------------    Agendar      -----------------*/
 
 #formulario {
     background-color: black;
@@ -210,4 +218,84 @@ button:hover {
     text-align-last: center;
     border-radius: 5px; 
     height: 20px;
+}
+
+/* -----------------    Login      -----------------*/
+
+#login{
+    background-color: black;
+    width: 75%;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: white;
+}
+
+/* -----------------    Admin      -----------------*/
+
+#datos{
+    background-color: black;
+    width: 75%;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: white;
+}
+
+#tabladatos{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: white;
+    border: white 1px solid;
+    border-radius: 2px;
+    padding: 0.5px;
+    background-color: white;
+
+}
+
+.lostd{
+    padding: 5px;
+    border: white solid 1px;
+    background-color: black;
+}
+
+#datoscargar{
+    height: 30px;
+}
+
+#datoscargar:hover{
+    border:black solid 1px;
+    border-radius:5px ;
+}
+
+.volverr{
+    cursor: pointer;
+    position: fixed;
+    width: 85px;
+    height: auto;
+    bottom: 40px;
+    left: 40px;
+    background-color: rgb(0, 0, 0);
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    transform: rotate(-180deg);
+}
+
+/* -----------------    Cita      -----------------*/
+
+#formcita{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }

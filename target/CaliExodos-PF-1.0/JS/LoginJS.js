@@ -45,16 +45,16 @@ function obtenerDatos() {
 function verificarUsuario() {
 
     let usuario = document.getElementById("user").value;
-    let constra = document.getElementById("contraseña").value;
-
-
 
     let veriUser = datos.find(ele => ele.usuario == usuario);
     console.log(veriUser);
     if (veriUser == undefined) {
         alert("Error");
+        document.getElementById("form").reset();
+
     } else {
         window.location = "./Admin.html";
+        document.getElementById("form").reset();
     }
 
 }

@@ -20,12 +20,18 @@
         <link href="https://fonts.googleapis.com/css2?family=Unlock&display=swap" rel="stylesheet">
         <script src="./JS/JS-PF.js" type="text/javascript"></script>
         <title>Agendar Cita</title>
+        <script>
+            function volver () {
+                window.location = "./index.html"
+            }
+        </script>
 
     <div id="titulo">
         <h1>Agendar</h1>
     </div> 
 </head>
 <body>
+    <img onclick="volver()" class="volverr" src="./SRC/ARROW.png">
     <br><br><br> 
     <div id="formulario">
         <form id="registrar">
@@ -98,7 +104,8 @@
                 </button>
             </div>
         </form>
+        <br><br>
     </div>
-
+    <br><br><br><br>
 </body>
 </html>

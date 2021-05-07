@@ -23,24 +23,34 @@ and open the template in the editor.
         <link href="https://fonts.googleapis.com/css2?family=Unlock&display=swap" rel="stylesheet">
         <script src="./JS/LoginJS.js" type="text/javascript"></script>
         <title>Revisar Citas</title>
+        <script>
+            function volver () {
+                window.location = "./index.html"
+            }
+        </script>
 
     <div id="titulo">
         <h1>Login</h1>
     </div> 
 </head>
 <body>
-    <div>
-        <form>
+    <br><br>
+    <img onclick="volver()" class="volverr" src="./SRC/ARROW.png">
+    <div id="login">
+        <br><br>
+        <p>Bienvenido</p>
+        <form id="form">
             <p>
                 <input id="user" placeholder="Ingrese el usuario" type="text" required >
             </p>
             <p>
-                <input id="contraseña" placeholder="contraseña" type="password" required>
+                <input id="contraseña" placeholder="Ingrese la contraseña" type="password" required>
             </p>
             <p>
                 <button onclick="verificarUsuario()" type="button">Acceder</button>
             </p>
         </form>
+        <br>
     </div>
 </body>
 </html>

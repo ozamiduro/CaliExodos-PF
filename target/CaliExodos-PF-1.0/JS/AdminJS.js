@@ -23,15 +23,10 @@ function obtenerDatos() {
     
     db.collection("cita").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-            console.log(`${doc.id} => ${doc.data().name},${doc.data().cedula},${doc.data().plan}`);
-
             var nombre = doc.data().name;
             var cedula = doc.data().cedula;
             
             var losplanes = doc.data().plan;
-            
-            console.log(losplanes);
-            console.log(losplanes.plan);
             
             var horario = losplanes.horario;
             var planes = losplanes.plan;//doc.data().plan['plan'];
@@ -47,12 +42,10 @@ function obtenerDatos() {
                 plan: plan,
             };
             
-            console.log(data.name);
 
             datos.push(data);
         });
     });
-    console.log(datos);
 }
 
 function tablaAdmin() {
@@ -64,11 +57,11 @@ function tablaAdmin() {
     
     for (let i = 0; i < datos.length; i++) {
         const citas = datos[i];
-        console.log(datos);
         nuevoTr += `<tr>
-                        <td>${citas.name}</td>
-                        <td>${citas.cc}</td>
-                        <td>${citas.plan.plan}</td>
+                        <td class="lostd">${citas.name}</td>
+                        <td class="lostd">${citas.cc}</td>
+                        <td class="lostd">${citas.plan.plan}</td>
+                        <td class="lostd">${citas.plan.horario}</td>
                     </tr>`;
     }
 
@@ -78,6 +71,7 @@ function tablaAdmin() {
 
 window.onload = function () {
     obtenerDatos();
+    setTimeout(function(){tablaAdmin()},4000);
 }
 
 
