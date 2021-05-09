@@ -27,15 +27,17 @@ function obtenerDatos() {
 
             var nombre = doc.data().name;
             var cedula = doc.data().cedula;
-            
+
             var losplanes = doc.data().plan;
             
             var horario = losplanes.horario;
             var planes = losplanes.plan;
+            var fecha = losplanes.fecha;
             
             let plan = {
                 horario:horario,
                 plan: planes,
+                fecha: fecha,
             };
             
             let data = {
@@ -63,6 +65,7 @@ function tablaCustomer(recti) {
         <td class="lostd">${recti.cc}</td>
         <td class="lostd">${recti.plan.plan}</td>
         <td class="lostd">${recti.plan.horario}</td>
+        <td class="lostd">${recti.plan.fecha}</td>
         </tr> `;
     
     body.innerHTML = nuevoTr;
@@ -71,9 +74,7 @@ function tablaCustomer(recti) {
 
 function VerificarDatos() {
     let check = document.getElementById("veri").value;
-    console.log(check)
     var cador = datos.find(Elem => Elem.cc === check);
-    console.log(cador == undefined) 
     
     if(cador !== undefined){
         tablaCustomer(cador);

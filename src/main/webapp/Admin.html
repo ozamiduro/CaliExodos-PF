@@ -36,6 +36,12 @@ and open the template in the editor.
 <body>
     <br><br>
     <button id="datoscargar" onclick="tablaAdmin()">Cargar</button>
+    <p id="datos">
+        Ingrese la fecha por la cual va a filtrar los datos
+    </p>
+    <p>
+        <input id="dat" type="date" onchange="probarFecha()" required>
+    </p>
     <img onclick="volver()" class="volverr" src="./SRC/ARROW.png">
     <br><br>
     <div id="datos">
@@ -54,6 +60,9 @@ and open the template in the editor.
                     </td>
                     <td class="lostd">
                         Horario
+                    </td>
+                    <td class="lostd">
+                        Fecha
                     </td>
                 </tr>
             </thead>
