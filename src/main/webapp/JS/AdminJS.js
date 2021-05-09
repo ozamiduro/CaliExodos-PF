@@ -18,6 +18,7 @@ firebase.firestore();
 let db = firebase.firestore();
 var datos = [];
 
+/* Funciones */
 
 function obtenerDatos() {
     

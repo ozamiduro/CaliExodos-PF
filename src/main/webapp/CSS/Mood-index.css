@@ -63,6 +63,20 @@ h1
     height: 75px;
 }
 
+#dispo{
+    background-color: black;
+    border: white 1px solid;
+    border-radius: 5px;
+    color: white;
+    width: 100px;
+    height: 80px;
+    text-align: center;
+    position:absolute;
+    right: 10px;
+    top: 220px;
+    
+}
+
 /* Titulo */
 #titulo{
     background-color: black;
@@ -218,6 +232,15 @@ button:hover {
     text-align-last: center;
     border-radius: 5px; 
     height: 20px;
+}
+
+#hora{
+    background-color: white;
+    width: 50%;
+    text-align-last: center;
+    border-radius: 5px; 
+    height: 20px;
+    text-align-last: center;
 }
 
 /* -----------------    Login      -----------------*/

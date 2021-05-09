@@ -1,4 +1,3 @@
-
 /* global firebase */
 
 var firebaseConfig = {
@@ -25,10 +24,9 @@ function obtenerDatos() {
     
     db.collection("cita").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-
             var nombre = doc.data().name;
             var cedula = doc.data().cedula;
-
+            
             var losplanes = doc.data().plan;
             
             var horario = losplanes.horario;
@@ -53,42 +51,36 @@ function obtenerDatos() {
     });
 }
 
-function tablaCustomer(recti) {
-    
-    let body = document.getElementById("data");
-    let nuevoTr = "";
+function ladisponibilidad(){
+    var dispo = document.getElementById("disponibilidad");
+    var today = document.getElementById("today");
+    var canti = 0;
+    var hoy = new Date();
+    var mes = hoy.getMonth()+1;
+    var dia = hoy.getDate();
+    var year = hoy.getFullYear();
+    if (mes <= 10) {
+        mes = `0${mes}`;
+    } 
+    if (dia <= 10){
+        dia = `0${dia}`;
+    }
+    lafecha = `${year}-${mes}-${dia}`;
 
-    body.innerHTML = "";
-    
-        nuevoTr +=
-        `<tr>
-        <td class="lostd">${recti.name}</td>
-        <td class="lostd">${recti.cc}</td>
-        <td class="lostd">${recti.plan.plan}</td>
-        <td class="lostd">${recti.plan.horario}</td>
-        <td class="lostd">${recti.plan.fecha}</td>
-        </tr> `;
-    
-    body.innerHTML = nuevoTr;
-    
+
+    for (data of datos) {
+        var fecha = data.plan.fecha;
+        if(fecha === lafecha){
+            canti += 1;
+            
+        }
+
+    }
+    today.innerText = lafecha;
+    dispo.innerText = `${canti}/200`;
 }
 
-function VerificarDatos() {
-    let check = document.getElementById("veri").value;
-    var cador = datos.find(Elem => Elem.cc === check);
-    
-    if(cador !== undefined){
-        tablaCustomer(cador);
-        document.getElementById("form").reset();
-    }
-    else{
-        document.getElementById("form").reset();
-        alert("Se ha generado un error al digitar su documento, por favor vuelvalo a digitar");
-        document.getElementById("data").innerHTML = "";
-    }
-    
-}
-
-window.onload = function () {
+window.onload = function() {
     obtenerDatos();
+    setTimeout(function(){ladisponibilidad()},3000);
 }

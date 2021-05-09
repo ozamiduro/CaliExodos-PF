@@ -19,8 +19,7 @@ firebase.firestore();
 
 let db = firebase.firestore();
 var fecha = new Date();
-
-
+var datos = [];
 
 /* Funciones */
 
@@ -33,6 +32,7 @@ function AgregarDatos() {
     var fecha = document.getElementById("date").value;
     
     var disponible = probarFecha(fecha);
+    var dis = disponibilidad(fecha);
 
 
     if (disponible !== true) {
@@ -40,20 +40,24 @@ function AgregarDatos() {
         alert("Mi loco esta muy mal");
     } else {
         console.log("Mi loco, ya se ha guardado");
-        db.collection('cita').doc(cedula).set({
-            name: name,
-            cedula: cedula,
-            plan : {
-                plan: plan,
-                horario: horario,
-                fecha: fecha,
+            if (dis !== true) {
+                console.log("Mi loco, no ha disponibilidad");
+            } else {
+                db.collection('cita').doc(cedula).set({
+                    name: name,
+                    cedula: cedula,
+                    plan : {
+                        plan: plan,
+                        horario: horario,
+                        fecha: fecha,
+                    }
+                })
+                        .then(res => (console.log("guardado")))
+                        .catch()
+            
+            
+                LimpiarForm();
             }
-        })
-                .then(res => (console.log("guardado")))
-                .catch()
-    
-    
-        LimpiarForm();
     }
 }
 
@@ -62,15 +66,39 @@ function LimpiarForm() {
 }
 
 
+function obtenerDatos() {
+    
+    db.collection("cita").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            var nombre = doc.data().name;
+            var cedula = doc.data().cedula;
+            
+            var losplanes = doc.data().plan;
+            
+            var horario = losplanes.horario;
+            var planes = losplanes.plan;
+            var fecha = losplanes.fecha;
+            
+            let plan = {
+                horario:horario,
+                plan: planes,
+                fecha: fecha,
+            };
+            
+            let data = {
+                name: nombre,
+                cc: cedula,
+                plan: plan,
+            };
+            
 
+            datos.push(data);
+        });
+    });
+}
 
 window.onload = function () {
-
-console.log(fecha);
-var lafecha = "2021-04-03".split("-");
-var mydate = new Date(lafecha[0], lafecha[1]-1, lafecha[2]);
-console.log(mydate.toDateString());
-
+    obtenerDatos();
 }
 
 function probarFecha(fecha){
@@ -93,6 +121,28 @@ function probarFecha(fecha){
     }
 
     return vale;
+}
+
+function disponibilidad(fecha){
+
+    var cantidad = 0;
+    var disponi;
+
+    for(data of datos){
+
+        if(fecha === data.plan.fecha){
+            cantidad +=1;
+            console.log(cantidad);
+        }
+    }
+
+    if (cantidad <= 200){
+        disponi = true;
+    } else {
+        disponi = false;
+    }
+
+    return disponi;
 }
 
 
