@@ -59,10 +59,10 @@ function ladisponibilidad(){
     var mes = hoy.getMonth()+1;
     var dia = hoy.getDate();
     var year = hoy.getFullYear();
-    if (mes <= 10) {
+    if (mes < 10) {
         mes = `0${mes}`;
     } 
-    if (dia <= 10){
+    if (dia < 10){
         dia = `0${dia}`;
     }
     lafecha = `${year}-${mes}-${dia}`;
