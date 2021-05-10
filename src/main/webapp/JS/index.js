@@ -76,11 +76,22 @@ function ladisponibilidad(){
         }
 
     }
-    today.innerText = lafecha;
+
+    // Aquí hay un problema con el Date, al dia toca sumarle una para que muestre el día del hoy
+    
+    dia += 1;
+    lafecha = `${year}-${mes}-${dia}`;
+    f = new Date(lafecha);
+
+    //Hasta aquí se soluciona
+    
+    today.innerText = f.toDateString();;
     dispo.innerText = `${canti}/200`;
 }
 
 window.onload = function() {
     obtenerDatos();
     setTimeout(function(){ladisponibilidad()},3000);
+
 }
+
