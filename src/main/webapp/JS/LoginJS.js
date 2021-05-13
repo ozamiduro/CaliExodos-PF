@@ -26,7 +26,6 @@ function obtenerDatos() {
 
     db.collection("admin").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-            console.log(`${doc.id} => ${doc.data().usuario},${doc.data().contraseña}`);
 
             let usuario = doc.data().usuario;
             let contraseña = doc.data().contraseña;
@@ -39,22 +38,27 @@ function obtenerDatos() {
             datos.push(data);
         });
     });
-    console.log(datos);
 }
 
 function verificarUsuario() {
 
     let usuario = document.getElementById("user").value;
+    let constra = document.getElementById("contraseña").value;
 
     let veriUser = datos.find(ele => ele.usuario == usuario);
-    console.log(veriUser);
     if (veriUser == undefined) {
         alert("Error");
         document.getElementById("form").reset();
 
     } else {
-        window.location = "./Admin.html";
-        document.getElementById("form").reset();
+        if (veriUser.usuario === usuario && veriUser.contraseña === constra) {
+            window.location = "./Admin.html";
+            document.getElementById("form").reset();
+        } else {
+            alert("Usted es una robadatos");
+            document.getElementById("form").reset();
+        }
+        
     }
 
 }
