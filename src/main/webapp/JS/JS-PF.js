@@ -122,7 +122,6 @@ function probarFecha(fecha) {
     } else {
         vale = false;
     }
-    console.log(dia);
     return vale;
 
 }
@@ -136,7 +135,6 @@ function disponibilidad(fecha) {
 
         if (fecha === data.plan.fecha) {
             cantidad += 1;
-            console.log(cantidad);
         }
     }
 

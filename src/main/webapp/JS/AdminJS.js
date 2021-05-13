@@ -97,13 +97,11 @@ function probarFecha() {
     let nuevoTr = "";
 
     for(dat of datos){
-        console.log(dat.plan.fecha);
         var fech = dat.plan.fecha;
 
         if(data === fech){
             body.innerHTML = "";
             cantidad +=1;
-            console.log(dat);
             nuevoTr += `<tr>
                         <td class="lostd">${dat.name}</td>
                         <td class="lostd">${dat.cc}</td>
