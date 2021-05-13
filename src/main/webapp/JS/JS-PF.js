@@ -30,34 +30,37 @@ function AgregarDatos() {
     var plan = document.getElementById("oplanes").value;
     var horario = document.getElementById("hora").value;
     var fecha = document.getElementById("date").value;
-    
+
     var disponible = probarFecha(fecha);
     var dis = disponibilidad(fecha);
 
 
     if (disponible !== true) {
         console.log("Error");
+        // Fecha anterior
         alert("Mi loco esta muy mal");
     } else {
-        console.log("Mi loco, ya se ha guardado");
-            if (dis !== true) {
-                console.log("Mi loco, no ha disponibilidad");
-            } else {
-                db.collection('cita').doc(cedula).set({
-                    name: name,
-                    cedula: cedula,
-                    plan : {
-                        plan: plan,
-                        horario: horario,
-                        fecha: fecha,
-                    }
-                })
-                        .then(res => (console.log("guardado")))
-                        .catch()
-            
-            
-                LimpiarForm();
-            }
+        if (dis !== true) {
+            console.log("Mi loco, no ha disponibilidad");
+            // Disponibilidad
+        } else {
+
+            // Guardado
+            db.collection('cita').doc(cedula).set({
+                name: name,
+                cedula: cedula,
+                plan: {
+                    plan: plan,
+                    horario: horario,
+                    fecha: fecha,
+                }
+            })
+                .then(res => (console.log("guardado")))
+                .catch()
+
+
+            LimpiarForm();
+        }
     }
 }
 
@@ -67,30 +70,30 @@ function LimpiarForm() {
 
 
 function obtenerDatos() {
-    
+
     db.collection("cita").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             var nombre = doc.data().name;
             var cedula = doc.data().cedula;
-            
+
             var losplanes = doc.data().plan;
-            
+
             var horario = losplanes.horario;
             var planes = losplanes.plan;
             var fecha = losplanes.fecha;
-            
+
             let plan = {
-                horario:horario,
+                horario: horario,
                 plan: planes,
                 fecha: fecha,
             };
-            
+
             let data = {
                 name: nombre,
                 cc: cedula,
                 plan: plan,
             };
-            
+
 
             datos.push(data);
         });
@@ -101,43 +104,43 @@ window.onload = function () {
     obtenerDatos();
 }
 
-function probarFecha(fecha){
+function probarFecha(fecha) {
     var hoy = new Date();
-    var mes = hoy.getMonth()+1;
+    var mes = hoy.getMonth() + 1;
     var dia = hoy.getDate();
     var year = hoy.getFullYear();
     if (mes < 10) {
         mes = `0${mes}`;
-    } 
-    if (dia < 10){
+    }
+    if (dia < 10) {
         dia = `0${dia}`;
     }
     lafecha = `${year}-${mes}-${dia}`;
     var vale;
-    if(fecha >= lafecha){
-        vale =  true;
+    if (fecha >= lafecha) {
+        vale = true;
     } else {
         vale = false;
     }
     console.log(dia);
     return vale;
-    
+
 }
 
-function disponibilidad(fecha){
+function disponibilidad(fecha) {
 
     var cantidad = 0;
     var disponi;
 
-    for(data of datos){
+    for (data of datos) {
 
-        if(fecha === data.plan.fecha){
-            cantidad +=1;
+        if (fecha === data.plan.fecha) {
+            cantidad += 1;
             console.log(cantidad);
         }
     }
 
-    if (cantidad <= 200){
+    if (cantidad <= 200) {
         disponi = true;
     } else {
         disponi = false;
@@ -152,4 +155,3 @@ function disponibilidad(fecha){
 
 
 
-    

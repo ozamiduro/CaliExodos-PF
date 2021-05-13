@@ -22,7 +22,7 @@ var datos = [];
 /* Funciones */
 
 function obtenerDatos() {
-    
+
     db.collection("cita").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
 
@@ -30,23 +30,23 @@ function obtenerDatos() {
             var cedula = doc.data().cedula;
 
             var losplanes = doc.data().plan;
-            
+
             var horario = losplanes.horario;
             var planes = losplanes.plan;
             var fecha = losplanes.fecha;
-            
+
             let plan = {
-                horario:horario,
+                horario: horario,
                 plan: planes,
                 fecha: fecha,
             };
-            
+
             let data = {
                 name: nombre,
                 cc: cedula,
                 plan: plan,
             };
-            
+
 
             datos.push(data);
         });
@@ -54,13 +54,13 @@ function obtenerDatos() {
 }
 
 function tablaCustomer(recti) {
-    
+
     let body = document.getElementById("data");
     let nuevoTr = "";
 
     body.innerHTML = "";
-    
-        nuevoTr +=
+
+    nuevoTr +=
         `<tr>
         <td class="lostd">${recti.name}</td>
         <td class="lostd">${recti.cc}</td>
@@ -68,25 +68,25 @@ function tablaCustomer(recti) {
         <td class="lostd">${recti.plan.horario}</td>
         <td class="lostd">${recti.plan.fecha}</td>
         </tr> `;
-    
+
     body.innerHTML = nuevoTr;
-    
+
 }
 
 function VerificarDatos() {
     let check = document.getElementById("veri").value;
     var cador = datos.find(Elem => Elem.cc === check);
-    
-    if(cador !== undefined){
+
+    if (cador !== undefined) {
         tablaCustomer(cador);
         document.getElementById("form").reset();
     }
-    else{
+    else {
         document.getElementById("form").reset();
         alert("Se ha generado un error al digitar su documento, por favor vuelvalo a digitar");
         document.getElementById("data").innerHTML = "";
     }
-    
+
 }
 
 window.onload = function () {
