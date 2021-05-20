@@ -267,6 +267,17 @@ button:hover {
     color: white;
 }
 
+#datosT{
+    background-color: black;
+    width: 75%;
+    height: 60px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: white;
+}
+
 #tabladatos{
     margin-left: auto;
     margin-right: auto;
@@ -286,7 +297,8 @@ button:hover {
 }
 
 #datoscargar{
-    height: 30px;
+    height: 60px;
+    width: 90px;
 }
 
 #datoscargar:hover{
@@ -321,4 +333,13 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
   margin: 0; 
+}
+
+#dat {
+    text-align: center;
+    width: auto;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
