@@ -53,7 +53,7 @@ function obtenerDatos() {
     });
 }
 
-function tablaCustomer(recti) {
+function tablaCostumer(recti) {
 
     let body = document.getElementById("data");
     let nuevoTr = "";
@@ -78,7 +78,7 @@ function VerificarDatos() {
     var cador = datos.find(Elem => Elem.cc === check);
 
     if (cador !== undefined) {
-        tablaCustomer(cador);
+        tablaCostumer(cador);
         document.getElementById("form").reset();
     }
     else {
