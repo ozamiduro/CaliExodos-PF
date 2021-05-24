@@ -347,3 +347,21 @@ input[type=number]::-webkit-outer-spin-button {
 .lumpy {
     display: table-row;
 }
+
+/* -----------------    Conocenos      -----------------*/
+
+.conocenos {
+    width: 25%;
+    height: 25%;
+    border-radius: 1000px;
+}
+
+#cono{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#pro {
+    padding: 25px;
+}

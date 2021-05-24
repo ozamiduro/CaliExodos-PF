@@ -39,7 +39,6 @@ function obtenerDatos() {
         });
     });
 
-    console.log(datos);
 }
 
 function verificarUsuario() {

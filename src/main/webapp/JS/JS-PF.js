@@ -33,16 +33,13 @@ function AgregarDatos() {
 
     var disponible = probarFecha(fecha);
     var dis = disponibilidad(fecha);
-    console.log(dis);
 
     if (disponible !== true) {
         estilos1();
-        console.log("Error");
         // Fecha anterior
     } else {
         if (dis !== true) {
             estilos2();
-            console.log("Mi loco, no ha disponibilidad");
             // Disponibilidad
         } else {
 
