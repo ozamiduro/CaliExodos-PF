@@ -83,7 +83,7 @@ function VerificarDatos() {
     }
     else {
         document.getElementById("form").reset();
-        alert("Se ha generado un error al digitar su documento, por favor vuelvalo a digitar");
+        estilos1();
         document.getElementById("data").innerHTML = "";
     }
 
@@ -91,4 +91,11 @@ function VerificarDatos() {
 
 window.onload = function () {
     obtenerDatos();
+}
+
+/*Notificaciones*/
+
+function estilos1 (){
+    document.getElementById("notificacion1").style.display= "block";
+     $("#notificacion1").delay(6500).fadeOut(1500,"swing");
 }

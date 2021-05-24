@@ -33,14 +33,15 @@ function AgregarDatos() {
 
     var disponible = probarFecha(fecha);
     var dis = disponibilidad(fecha);
-
+    console.log(dis);
 
     if (disponible !== true) {
+        estilos1();
         console.log("Error");
         // Fecha anterior
-        alert("Mi loco esta muy mal");
     } else {
         if (dis !== true) {
+            estilos2();
             console.log("Mi loco, no ha disponibilidad");
             // Disponibilidad
         } else {
@@ -55,11 +56,12 @@ function AgregarDatos() {
                     fecha: fecha,
                 }
             })
-                .then(res => (console.log("guardado")))
+                .then(res => (estilos3()))
                 .catch()
 
 
             LimpiarForm();
+            obtenerDatos();
         }
     }
 }
@@ -129,7 +131,7 @@ function probarFecha(fecha) {
 function disponibilidad(fecha) {
 
     var cantidad = 0;
-    var disponi;
+    var disponi = false;
 
     for (data of datos) {
 
@@ -140,14 +142,29 @@ function disponibilidad(fecha) {
 
     if (cantidad <= 200) {
         disponi = true;
-    } else {
+    } else if (cantidad > 200) {
         disponi = false;
     }
 
     return disponi;
 }
 
+/*Notificaciones*/
 
+function estilos1 (){
+    document.getElementById("notificacion1").style.display= "block";
+     $("#notificacion1").delay(6500).fadeOut(1500,"swing");
+}
+
+function estilos2 (){
+    document.getElementById("notificacion2").style.display= "block";
+     $("#notificacion2").delay(6500).fadeOut(1500,"swing");
+}
+
+function estilos3 (){
+    document.getElementById("notificacion3").style.display= "block";
+     $("#notificacion3").delay(6500).fadeOut(1500,"swing");
+}
 
 
 
