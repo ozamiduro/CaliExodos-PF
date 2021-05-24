@@ -19,74 +19,83 @@ firebase.firestore();
 let db = firebase.firestore();
 var datos = [];
 
+/* Funciones */
 
 function obtenerDatos() {
-    
+
     db.collection("cita").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
 
             var nombre = doc.data().name;
             var cedula = doc.data().cedula;
-            
+
             var losplanes = doc.data().plan;
-            
+
             var horario = losplanes.horario;
             var planes = losplanes.plan;
-            
+            var fecha = losplanes.fecha;
+
             let plan = {
-                horario:horario,
+                horario: horario,
                 plan: planes,
+                fecha: fecha,
             };
-            
+
             let data = {
                 name: nombre,
                 cc: cedula,
                 plan: plan,
             };
-            
+
 
             datos.push(data);
         });
     });
 }
 
-function tablaCustomer(recti) {
-    
+function tablaCostumer(recti) {
+
     let body = document.getElementById("data");
     let nuevoTr = "";
 
     body.innerHTML = "";
-    
-        nuevoTr +=
+
+    nuevoTr +=
         `<tr>
         <td class="lostd">${recti.name}</td>
         <td class="lostd">${recti.cc}</td>
         <td class="lostd">${recti.plan.plan}</td>
         <td class="lostd">${recti.plan.horario}</td>
+        <td class="lostd">${recti.plan.fecha}</td>
         </tr> `;
-    
+
     body.innerHTML = nuevoTr;
-    
+
 }
 
 function VerificarDatos() {
     let check = document.getElementById("veri").value;
-    console.log(check)
     var cador = datos.find(Elem => Elem.cc === check);
-    console.log(cador == undefined) 
-    
-    if(cador !== undefined){
-        tablaCustomer(cador);
+
+    if (cador !== undefined) {
+        tablaCostumer(cador);
         document.getElementById("form").reset();
     }
-    else{
+    else {
         document.getElementById("form").reset();
-        alert("Se ha generado un error al digitar su documento, por favor vuelvalo a digitar");
+        estilos1();
         document.getElementById("data").innerHTML = "";
     }
-    
+
 }
 
 window.onload = function () {
     obtenerDatos();
+}
+
+/*Notificaciones*/
+
+function estilos1 (){
+    document.getElementById("notificacion1").style.display= "block";
+     $("#notificacion1").delay(6500).fadeOut(1500,"swing");
 }

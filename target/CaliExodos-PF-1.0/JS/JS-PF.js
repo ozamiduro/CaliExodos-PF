@@ -18,8 +18,8 @@ firebase.firestore();
 /* Atributos */
 
 let db = firebase.firestore();
-
-
+var fecha = new Date();
+var datos = [];
 
 /* Funciones */
 
@@ -29,23 +29,38 @@ function AgregarDatos() {
     var cedula = document.getElementById("cc").value;
     var plan = document.getElementById("oplanes").value;
     var horario = document.getElementById("hora").value;
+    var fecha = document.getElementById("date").value;
+
+    var disponible = probarFecha(fecha);
+    var dis = disponibilidad(fecha);
+
+    if (disponible !== true) {
+        estilos1();
+        // Fecha anterior
+    } else {
+        if (dis !== true) {
+            estilos2();
+            // Disponibilidad
+        } else {
+
+            // Guardado
+            db.collection('cita').doc(cedula).set({
+                name: name,
+                cedula: cedula,
+                plan: {
+                    plan: plan,
+                    horario: horario,
+                    fecha: fecha,
+                }
+            })
+                .then(res => (estilos3()))
+                .catch()
 
 
-    db.collection('cita').doc(cedula).set({
-        name: name,
-        cedula: cedula,
-        plan : {
-            plan: plan,
-            horario: horario,
-            
+            LimpiarForm();
+            obtenerDatos();
         }
-    })
-            .then(res => (console.log("guardado")))
-            .catch()
-
-
-    obtenerDatos();
-    LimpiarForm();
+    }
 }
 
 function LimpiarForm() {
@@ -53,13 +68,102 @@ function LimpiarForm() {
 }
 
 
+function obtenerDatos() {
 
+    db.collection("cita").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            var nombre = doc.data().name;
+            var cedula = doc.data().cedula;
+
+            var losplanes = doc.data().plan;
+
+            var horario = losplanes.horario;
+            var planes = losplanes.plan;
+            var fecha = losplanes.fecha;
+
+            let plan = {
+                horario: horario,
+                plan: planes,
+                fecha: fecha,
+            };
+
+            let data = {
+                name: nombre,
+                cc: cedula,
+                plan: plan,
+            };
+
+
+            datos.push(data);
+        });
+    });
+}
 
 window.onload = function () {
+    obtenerDatos();
+}
 
+function probarFecha(fecha) {
+    var hoy = new Date();
+    var mes = hoy.getMonth() + 1;
+    var dia = hoy.getDate();
+    var year = hoy.getFullYear();
+    if (mes < 10) {
+        mes = `0${mes}`;
+    }
+    if (dia < 10) {
+        dia = `0${dia}`;
+    }
+    lafecha = `${year}-${mes}-${dia}`;
+    var vale;
+    if (fecha >= lafecha) {
+        vale = true;
+    } else {
+        vale = false;
+    }
+    return vale;
+
+}
+
+function disponibilidad(fecha) {
+
+    var cantidad = 0;
+    var disponi = false;
+
+    for (data of datos) {
+
+        if (fecha === data.plan.fecha) {
+            cantidad += 1;
+        }
+    }
+
+    if (cantidad <= 200) {
+        disponi = true;
+    } else if (cantidad > 200) {
+        disponi = false;
+    }
+
+    return disponi;
+}
+
+/*Notificaciones*/
+
+function estilos1 (){
+    document.getElementById("notificacion1").style.display= "block";
+     $("#notificacion1").delay(6500).fadeOut(1500,"swing");
+}
+
+function estilos2 (){
+    document.getElementById("notificacion2").style.display= "block";
+     $("#notificacion2").delay(6500).fadeOut(1500,"swing");
+}
+
+function estilos3 (){
+    document.getElementById("notificacion3").style.display= "block";
+     $("#notificacion3").delay(6500).fadeOut(1500,"swing");
 }
 
 
 
 
-    
+

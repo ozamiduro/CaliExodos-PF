@@ -26,7 +26,6 @@ function obtenerDatos() {
 
     db.collection("admin").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-            console.log(`${doc.id} => ${doc.data().usuario},${doc.data().contraseña}`);
 
             let usuario = doc.data().usuario;
             let contraseña = doc.data().contraseña;
@@ -39,23 +38,30 @@ function obtenerDatos() {
             datos.push(data);
         });
     });
-    console.log(datos);
+
 }
 
 function verificarUsuario() {
 
     let usuario = document.getElementById("user").value;
+    let constra = document.getElementById("contraseña").value;
 
-    let veriUser = datos.find(ele => ele.usuario == usuario);
-    console.log(veriUser);
-    if (veriUser == undefined) {
-        alert("Error");
-        document.getElementById("form").reset();
-
+    if(usuario === "" || constra === ""){
+        estilos1();
     } else {
-        window.location = "./Admin.html";
-        document.getElementById("form").reset();
+        let veriUser = datos.find(ele => ele.usuario == usuario);
+        if (veriUser == undefined) {
+            estilos2();
+            document.getElementById("form").reset();
+    
+        } else {
+            if (veriUser.usuario === usuario && veriUser.contraseña === constra) {
+                window.location = "./Admin.html";
+                document.getElementById("form").reset();
+            }
+        }
     }
+    
 
 }
 
@@ -63,3 +69,14 @@ window.onload = function () {
     obtenerDatos();
 }
 
+/*Notificaciones*/
+
+function estilos1 (){
+    document.getElementById("notificacion1").style.display= "block";
+     $("#notificacion1").delay(6500).fadeOut(1500,"swing");
+}
+
+function estilos2 (){
+    document.getElementById("notificacion2").style.display= "block";
+     $("#notificacion2").delay(6500).fadeOut(1500,"swing");
+}

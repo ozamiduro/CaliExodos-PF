@@ -18,6 +18,7 @@ firebase.firestore();
 let db = firebase.firestore();
 var datos = [];
 
+/* Funciones */
 
 function obtenerDatos() {
     
@@ -29,11 +30,13 @@ function obtenerDatos() {
             var losplanes = doc.data().plan;
             
             var horario = losplanes.horario;
-            var planes = losplanes.plan;//doc.data().plan['plan'];
+            var planes = losplanes.plan;
+            var fecha = losplanes.fecha;
             
             let plan = {
                 horario:horario,
                 plan: planes,
+                fecha: fecha,
             };
             
             let data = {
@@ -50,21 +53,33 @@ function obtenerDatos() {
 
 function tablaAdmin() {
     let body = document.getElementById("data");
+    let foot = document.getElementById("cantidadatos");
     let nuevoTr = "";
+    let cantidad = 0;
+
+    
 
     body.innerHTML = "";
     
     
-    for (let i = 0; i < datos.length; i++) {
-        const citas = datos[i];
+    for (citas of datos) {
+        cantidad +=1;
         nuevoTr += `<tr>
                         <td class="lostd">${citas.name}</td>
                         <td class="lostd">${citas.cc}</td>
                         <td class="lostd">${citas.plan.plan}</td>
                         <td class="lostd">${citas.plan.horario}</td>
+                        <td class="lostd">${citas.plan.fecha}</td>
                     </tr>`;
-    }
 
+    }
+    foot.innerHTML = `<tr>
+    <td class="lostd">//</td>
+    <td class="lostd">//</td>
+    <td class="lostd">//</td>
+    <td class="lostd">//</td>
+    <td class="lostd">${cantidad}</td>
+    </tr>`;
     body.innerHTML = nuevoTr;
     
 }
@@ -74,4 +89,35 @@ window.onload = function () {
     setTimeout(function(){tablaAdmin()},4000);
 }
 
+function probarFecha() { 
+    var data = document.getElementById("dat").value;
+    let body = document.getElementById("data");
+    let foot = document.getElementById("cantidadatos");
+    let cantidad = 0;
+    let nuevoTr = "";
 
+    for(dat of datos){
+        var fech = dat.plan.fecha;
+
+        if(data === fech){
+            body.innerHTML = "";
+            cantidad +=1;
+            nuevoTr += `<tr>
+                        <td class="lostd">${dat.name}</td>
+                        <td class="lostd">${dat.cc}</td>
+                        <td class="lostd">${dat.plan.plan}</td>
+                        <td class="lostd">${dat.plan.horario}</td>
+                        <td class="lostd">${dat.plan.fecha}</td>
+                    </tr>`;
+            foot.innerHTML = `<tr>
+                    <td class="lostd">//</td>
+                    <td class="lostd">//</td>
+                    <td class="lostd">//</td>
+                    <td class="lostd">//</td>
+                    <td class="lostd">${cantidad}</td>
+                </tr>`;
+            body.innerHTML = nuevoTr;
+        } 
+    }
+
+}

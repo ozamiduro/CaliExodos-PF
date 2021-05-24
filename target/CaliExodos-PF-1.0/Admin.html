@@ -21,6 +21,7 @@ and open the template in the editor.
         <link href="https://fonts.googleapis.com/css2?family=Orelega+One&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Orelega+One&family=Roboto:wght@300&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Unlock&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="./IMAGES/Icon.png">
         <script src="./JS/AdminJS.js" type="text/javascript"></script>
         <title>Revisar Citas</title>
 
@@ -34,8 +35,17 @@ and open the template in the editor.
     </script>
 </head>
 <body>
-    <br><br>
+    <br>
     <button id="datoscargar" onclick="tablaAdmin()">Cargar</button>
+    <p id="datosT">
+        <br>
+        Ingrese la fecha por la cual va a filtrar los datos
+    </p>
+    <p>
+        <center>
+            <input id="dat" type="date" onchange="probarFecha()" required>
+        </center>
+    </p>
     <img onclick="volver()" class="volverr" src="./SRC/ARROW.png">
     <br><br>
     <div id="datos">
@@ -54,6 +64,9 @@ and open the template in the editor.
                     </td>
                     <td class="lostd">
                         Horario
+                    </td>
+                    <td class="lostd">
+                        Fecha
                     </td>
                 </tr>
             </thead>

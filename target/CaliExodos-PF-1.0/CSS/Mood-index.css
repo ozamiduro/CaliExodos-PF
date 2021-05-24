@@ -63,6 +63,20 @@ h1
     height: 75px;
 }
 
+#dispo{
+    background-color: black;
+    border: white 1px solid;
+    border-radius: 5px;
+    color: white;
+    width: 150px;
+    height: 80px;
+    text-align: center;
+    position:absolute;
+    right: 10px;
+    top: 220px;
+    
+}
+
 /* Titulo */
 #titulo{
     background-color: black;
@@ -107,7 +121,7 @@ h1
 
 .table{
     margin-left: auto;
-    margin-right: auto;
+    margin-right: 20px;
 }
 
 /*Pie de página*/
@@ -220,6 +234,15 @@ button:hover {
     height: 20px;
 }
 
+#hora{
+    background-color: white;
+    width: 50%;
+    text-align-last: center;
+    border-radius: 5px; 
+    height: 20px;
+    text-align-last: center;
+}
+
 /* -----------------    Login      -----------------*/
 
 #login{
@@ -237,6 +260,17 @@ button:hover {
 #datos{
     background-color: black;
     width: 75%;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: white;
+}
+
+#datosT{
+    background-color: black;
+    width: 75%;
+    height: 60px;
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
@@ -263,7 +297,8 @@ button:hover {
 }
 
 #datoscargar{
-    height: 30px;
+    height: 60px;
+    width: 90px;
 }
 
 #datoscargar:hover{
@@ -298,4 +333,35 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
   margin: 0; 
+}
+
+#dat {
+    text-align: center;
+    width: auto;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.lumpy {
+    display: table-row;
+}
+
+/* -----------------    Conocenos      -----------------*/
+
+.conocenos {
+    width: 25%;
+    height: 25%;
+    border-radius: 1000px;
+}
+
+#cono{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#pro {
+    padding: 25px;
 }
