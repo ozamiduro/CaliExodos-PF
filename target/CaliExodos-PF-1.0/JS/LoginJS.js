@@ -19,6 +19,8 @@ firebase.firestore();
 
 let db = firebase.firestore();
 let datos = [];
+let int = 0;
+
 
 /* Funciones */
 
@@ -46,22 +48,33 @@ function verificarUsuario() {
     let usuario = document.getElementById("user").value;
     let constra = document.getElementById("contraseña").value;
 
-    if(usuario === "" || constra === ""){
+
+
+    if (usuario === "" || constra === "") {
         estilos1();
     } else {
-        let veriUser = datos.find(ele => ele.usuario == usuario);
-        if (veriUser == undefined) {
-            estilos2();
-            document.getElementById("form").reset();
-    
+        if (int >= 2) {
+            alert('Máxima cantidad de intentos completadas');
+            window.location = "./index.html";
         } else {
-            if (veriUser.usuario === usuario && veriUser.contraseña === constra) {
-                window.location = "./Admin.html";
+            let veriUser = datos.find(ele => ele.usuario == usuario);
+            if (veriUser == undefined) {
+                int++;
+                estilos2();
                 document.getElementById("form").reset();
+
+            } else {
+                if (veriUser.usuario === usuario && veriUser.contraseña === constra) {
+                    window.location = "./Admin.html";
+                    document.getElementById("form").reset();
+                }
             }
         }
+
     }
-    
+
+
+
 
 }
 
@@ -71,12 +84,12 @@ window.onload = function () {
 
 /*Notificaciones*/
 
-function estilos1 (){
-    document.getElementById("notificacion1").style.display= "block";
-     $("#notificacion1").delay(6500).fadeOut(1500,"swing");
+function estilos1() {
+    document.getElementById("notificacion1").style.display = "block";
+    $("#notificacion1").delay(6500).fadeOut(1500, "swing");
 }
 
-function estilos2 (){
-    document.getElementById("notificacion2").style.display= "block";
-     $("#notificacion2").delay(6500).fadeOut(1500,"swing");
+function estilos2() {
+    document.getElementById("notificacion2").style.display = "block";
+    $("#notificacion2").delay(6500).fadeOut(1500, "swing");
 }
