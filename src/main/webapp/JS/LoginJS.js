@@ -48,8 +48,6 @@ function verificarUsuario() {
     let usuario = document.getElementById("user").value;
     let constra = document.getElementById("contraseña").value;
 
-
-
     if (usuario === "" || constra === "") {
         estilos1();
     } else {
@@ -70,12 +68,7 @@ function verificarUsuario() {
                 }
             }
         }
-
     }
-
-
-
-
 }
 
 window.onload = function () {
